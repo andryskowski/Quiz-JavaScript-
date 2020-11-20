@@ -1,0 +1,22 @@
+*, 
+*::after, 
+*::before 
+{ 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: inherit; 
+} 
+
+body{
+    background-color: pink;
+    font-size: 2em;
+}
+
+span{
+    display: inline-block;
+    cursor: pointer;
+}
+
+.checkedAnswer{
+    color: white;
+}
