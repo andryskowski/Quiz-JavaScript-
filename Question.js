@@ -1,11 +1,11 @@
 let questions = [
     {
     idQuestion: 0,
-    question: 'Ziemniak to?',
-    A: 'warzywo',
-    B: 'owoc',
-    C: 'mebel',
-    D: 'mieso',
+    question: 'Karolina to?',
+    A: 'sojowa paróweczka',
+    B: 'mięsna parówka',
+    C: 'bułka kajzerka',
+    D: 'ziemniaczek',
     trueAnswer: 'A'
  },
  {
@@ -38,6 +38,11 @@ class Question {
         let quests = [...questions]
         this.getQuestionID = () => _id;
         this.setQuestionID = (_newid) => _id = _newid;
+        this.questionsQuantity = quests.length;
+        this.markedAnswer = 'E';
+
+        this.setMarkedAnswer = (_newMarkedAnswer) => this.markedAnswer = _newMarkedAnswer;
+        this.getMarkedAnswer = () => this.markedAnswer;
 
         this.getQuestion = () => {
             return quests[_id].question;

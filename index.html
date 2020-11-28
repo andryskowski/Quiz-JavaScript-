@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap" rel="stylesheet">
   <title>Quiz</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
@@ -13,14 +14,19 @@
 </head>
 
 <body>
-  <div class="question">
+  <div class="questionDIV">
     <p class="question">Pytanie ?</p>
     <span class="A answer">A. </span>
     <span class="B answer">B. </span>
     <span class="C answer">C. </span>
     <span class="D answer">D. </span>
   </div>
-  <button>Next question</button>
+  <div id="fiftyfifty">
+    50/50
+  </div>
+  <button></button>
+  <script src="Result.js"></script>
+  <script src="Answers.js"></script>
   <script src="Question.js"></script>
   <script src="Draw.js"></script>
   <script src="script.js"></script>
