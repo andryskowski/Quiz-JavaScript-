@@ -1,8 +1,8 @@
 let questions = [
     {
     idQuestion: 0,
-    question: 'Karolina to?',
-    A: 'sojowa paróweczka',
+    question: 'Twoje ulubione jedzenie to?',
+    A: 'sojowa parówka',
     B: 'mięsna parówka',
     C: 'bułka kajzerka',
     D: 'ziemniaczek',
