@@ -16,12 +16,25 @@ class Draw {
         // this.fiftyFifty = document.querySelector('#fiftyfifty');
         // this.fiftyFiftyOnChange();
 
+        //buttons for LifeLines
         this.buttonll1 = document.createElement("button");
         document.body.appendChild(this.buttonll1);
+        this.buttonll2 = document.createElement("button");
+        document.body.appendChild(this.buttonll2);
+
+        this.POPUP = document.createElement("div");
+        document.body.appendChild(this.POPUP);
+        this.POPUP.className = "popup";
+
+
         this.drawButtonsLifeLines();
 
 
+
+
+
         this.setDraw = () => {
+            this.POPUP.innerHTML = ``;
             this.answerA.style.color = "black";
             this.answerB.style.color = "black";
             this.answerC.style.color = "black";
@@ -140,20 +153,19 @@ class Draw {
         this.buttonll1.innerHTML = "FiftyFifty";
         this.buttonll1.addEventListener("click", () => this.drawLifeLinePopUp("FiftyFifty"));
 
+        this.buttonll2.innerHTML = "AskTheAudience";
+        this.buttonll2.addEventListener("click", () => this.drawLifeLinePopUp("AskTheAudience"));
+
 
     }
 
 
 
     drawLifeLinePopUp(LIFELINE_NAME) {
-        const POPUP = document.createElement("div");
-        document.body.appendChild(POPUP);
-        POPUP.innerHTML = "Koło ratunkowe wybrane przez ciebie to: ";
-        POPUP.className = "popup";
-
+        //FiftyFifty LifeLine
         if (LIFELINE_NAME == "FiftyFifty") {
             const FIFTYFIFTY = new FiftyFifty(true);
-            POPUP.innerHTML += FIFTYFIFTY.getName();
+            this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to: ` + FIFTYFIFTY.getName();
             // FIFTYFIFTY.algorithmFiftyFifty(QUESTION.getAnswerTrue());
 
             const SHUFFLED_LIST_INCORRECT_ANSWERS = FIFTYFIFTY.algorithmFiftyFifty();
@@ -175,7 +187,85 @@ class Draw {
             else if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "A")
                 this.answerA.style.color = "gray";
 
-                this.buttonll1.innerHTML="wykorzystany";
+            this.buttonll1.innerHTML = "wykorzystany";
+        }
+
+        else if (LIFELINE_NAME == "AskTheAudience") {
+            const ASK_THE_AUDIENCE = new AskTheAudience(true);
+            this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to: ` + ASK_THE_AUDIENCE.getName();
+
+
+            const LIST_PERCENTS = ASK_THE_AUDIENCE.algorithmAskTheAudience();
+            const MAX_PERCENT = Math.max(...LIST_PERCENTS)
+
+            const PERCENT_A = document.createElement("div");
+            this.POPUP.appendChild(PERCENT_A);
+            PERCENT_A.className = `percent`;
+
+            const PERCENT_B = document.createElement("div");
+            this.POPUP.appendChild(PERCENT_B);
+            PERCENT_B.className = `percent`;
+
+            const PERCENT_C = document.createElement("div");
+            this.POPUP.appendChild(PERCENT_C);
+            PERCENT_C.className = `percent`;
+
+            const PERCENT_D = document.createElement("div");
+            this.POPUP.appendChild(PERCENT_D);
+            PERCENT_D.className = `percent`;
+
+            if (QUESTION.getAnswerTrue() == "A") {
+                PERCENT_A.innerHTML = `${MAX_PERCENT}%`;
+                PERCENT_A.style.width = `${MAX_PERCENT}%`;
+
+                PERCENT_B.innerHTML = `${LIST_PERCENTS[1]}%`;
+                PERCENT_B.style.width = `${LIST_PERCENTS[1]}%`;
+
+                PERCENT_C.innerHTML = `${LIST_PERCENTS[2]}%`;
+                PERCENT_C.style.width = `${LIST_PERCENTS[2]}%`;
+
+                PERCENT_D.innerHTML = `${LIST_PERCENTS[3]}%`;
+                PERCENT_D.style.width = `${LIST_PERCENTS[3]}%`;
+            }
+            else if (QUESTION.getAnswerTrue() == "B") {
+                PERCENT_B.innerHTML = `${MAX_PERCENT}%`;
+                PERCENT_B.style.width = `${MAX_PERCENT}%`;
+
+                PERCENT_A.innerHTML = `${LIST_PERCENTS[1]}%`;
+                PERCENT_A.style.width = `${LIST_PERCENTS[1]}%`;
+
+                PERCENT_C.innerHTML = `${LIST_PERCENTS[2]}%`;
+                PERCENT_C.style.width = `${LIST_PERCENTS[2]}%`;
+
+                PERCENT_D.innerHTML = `${LIST_PERCENTS[3]}%`;
+                PERCENT_D.style.width = `${LIST_PERCENTS[3]}%`;
+            }
+            else if (QUESTION.getAnswerTrue() == "C") {
+                PERCENT_C.innerHTML = `${MAX_PERCENT}%`;
+                PERCENT_C.style.width = `${MAX_PERCENT}%`;
+
+                PERCENT_B.innerHTML = `${LIST_PERCENTS[1]}%`;
+                PERCENT_B.style.width = `${LIST_PERCENTS[1]}%`;
+
+                PERCENT_C.innerHTML = `${LIST_PERCENTS[2]}%`;
+                PERCENT_C.style.width = `${LIST_PERCENTS[2]}%`;
+
+                PERCENT_D.innerHTML = `${LIST_PERCENTS[3]}%`;
+                PERCENT_D.style.width = `${LIST_PERCENTS[3]}%`;
+            }
+            else if (QUESTION.getAnswerTrue() == "D") {
+                PERCENT_D.innerHTML = `${MAX_PERCENT}%`;
+                PERCENT_D.style.width = `${MAX_PERCENT}%`;
+
+                PERCENT_B.innerHTML = `${LIST_PERCENTS[1]}%`;
+                PERCENT_B.style.width = `${LIST_PERCENTS[1]}%`;
+
+                PERCENT_C.innerHTML = `${LIST_PERCENTS[2]}%`;
+                PERCENT_C.style.width = `${LIST_PERCENTS[2]}%`;
+
+                PERCENT_A.innerHTML = `${LIST_PERCENTS[3]}%`;
+                PERCENT_A.style.width = `${LIST_PERCENTS[3]}%`;
+            }
         }
 
     }
