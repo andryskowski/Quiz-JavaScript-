@@ -21,7 +21,11 @@ class Draw {
         document.body.appendChild(this.buttonll1);
         this.buttonll2 = document.createElement("button");
         document.body.appendChild(this.buttonll2);
+        this.buttonll3 = document.createElement("button");
+        document.body.appendChild(this.buttonll3);
 
+        
+        //Popup where lifelines are displayed
         this.POPUP = document.createElement("div");
         document.body.appendChild(this.POPUP);
         this.POPUP.className = "popup";
@@ -82,7 +86,6 @@ class Draw {
 
     checkAnswer(checkedAnswer) {
         QUESTION.setMarkedAnswer(checkedAnswer);
-        console.log(QUESTION.getMarkedAnswer());
         if (checkedAnswer === QUESTION.getAnswerTrue()) {
             alert('Prawidłowa odpowiedź!');
             this.isCorrect = true;
@@ -96,7 +99,6 @@ class Draw {
     changeQuestion() {
         // const button = document.querySelector('button');
         this.button.addEventListener("click", () => {
-            console.log(QUESTION.questionsQuantity, this.counter);
             if ((QUESTION.questionsQuantity - 1) > this.counter) {
                 QUESTION.setQuestionID(this.counter += 1);
                 draw.setDraw();
@@ -156,7 +158,8 @@ class Draw {
         this.buttonll2.innerHTML = "AskTheAudience";
         this.buttonll2.addEventListener("click", () => this.drawLifeLinePopUp("AskTheAudience"));
 
-
+        this.buttonll3.innerHTML = "Phone A Friend";
+        this.buttonll3.addEventListener("click", () => this.drawLifeLinePopUp("PhoneAFriend"));
     }
 
 
@@ -266,6 +269,13 @@ class Draw {
                 PERCENT_A.innerHTML = `${LIST_PERCENTS[3]}%`;
                 PERCENT_A.style.width = `${LIST_PERCENTS[3]}%`;
             }
+        }
+        else if (LIFELINE_NAME == "PhoneAFriend")
+        {
+        const PHONE_A_FRIEND = new PhoneAFriend(true);
+        this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to: ` + PHONE_A_FRIEND.getName();
+        const ANSWER_FROM_FRIEND = PHONE_A_FRIEND.algorithmPhoneAFriend();
+        this.POPUP.innerHTML +=  `Według mnie prawidłowa odpowiedź to: ${ANSWER_FROM_FRIEND}`
         }
 
     }

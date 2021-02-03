@@ -33,8 +33,7 @@ class AskTheAudience extends LifeLine {
         LIST_PERCENTS.push(100 - (LIST_PERCENTS[2] + LIST_PERCENTS[1] + LIST_PERCENTS[0]))
 
         const PERCENT_A = 70;
-        const DEC_LIST_PERCENTS = LIST_PERCENTS.sort(this.compareNumbers)
-        console.log(DEC_LIST_PERCENTS);
+        const DEC_LIST_PERCENTS = LIST_PERCENTS.sort(this.compareNumbers);
         return DEC_LIST_PERCENTS;
     }
 }
