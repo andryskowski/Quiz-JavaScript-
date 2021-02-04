@@ -95,7 +95,7 @@ class Draw {
     changeQuestion() {
         // const button = document.querySelector('button');
         this.button.addEventListener("click", () => {
-            
+            this.resetColorsAnswers();
             if ((QUESTION.questionsQuantity - 1) > this.counter) {
                 QUESTION.setQuestionID(this.counter += 1);
 
@@ -120,10 +120,10 @@ class Draw {
     }
 
     resetColorsAnswers() {
-        this.answerA.style.color = "black";
-        this.answerB.style.color = "black";
-        this.answerC.style.color = "black";
-        this.answerD.style.color = "black";
+        this.answerA.classList.remove(`fiftyFifty`);
+        this.answerB.classList.remove(`fiftyFifty`);
+        this.answerC.classList.remove(`fiftyFifty`);
+        this.answerD.classList.remove(`fiftyFifty`);
     }
 
     cleanBoard() {
@@ -162,22 +162,22 @@ class Draw {
 
             const SHUFFLED_LIST_INCORRECT_ANSWERS = FIFTYFIFTY.algorithmFiftyFifty();
             if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "B")
-                this.answerB.style.color = "gray";
+                this.answerB.className = `fiftyFifty`;
             else if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "C")
-                this.answerC.style.color = "gray";
+                this.answerC.className = `fiftyFifty`;
             else if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "D")
-                this.answerD.style.color = "gray";
+                this.answerD.className = `fiftyFifty`;
             else if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "A")
-                this.answerA.style.color = "gray";
+                this.answerA.className = `fiftyFifty`;
 
             if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "B")
-                this.answerB.style.color = "gray";
+                this.answerB.className = `fiftyFifty`;
             else if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "C")
-                this.answerC.style.color = "gray";
+                this.answerC.className = `fiftyFifty`;
             else if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "D")
-                this.answerD.style.color = "gray";
+                this.answerD.className = `fiftyFifty`;
             else if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "A")
-                this.answerA.style.color = "gray";
+                this.answerA.className = `fiftyFifty`;
 
             this.buttonll1.innerHTML = "wykorzystany";
         }
