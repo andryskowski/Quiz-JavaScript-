@@ -8,17 +8,43 @@
 } 
 
 body{
-    background-color: #87ceeb;
+
     font-size: 2em;
     font-family: 'Open Sans', sans-serif;
+
 
 }
 
 .bgQuestion{
-  position: absolute;
-  left: 50%;
-  top: 50%;
+    background-image: url("img/tlo.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+
+
+.questionDIV{
+    background-color: white;
+    border: gray solid 5px;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1px black solid;
+    
+}
+
+
+
 
 span{
     display: inline-block;
@@ -54,22 +80,8 @@ span{
     cursor: pointer;
 }
 
-.questionDIV{
-    background-color: pink;
-    border: gray solid 5px;
-    border-radius: 10px;
-    transform: translate(-50%, -50%);
-    padding: 25px;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 3fr 1fr;
-    
-}
 
-.question{
-    background-color: white;
 
-}
 
 .answers{
     background-color: blue;
@@ -84,14 +96,16 @@ span{
     background-color: gold;
     padding: 20px;
     width: 200px;
-
+    border: 1px black solid;
 
 }
 
 
 
 .reward{
-    background-color: yellow;
+    color: yellow;
+    background-color: rgb(36, 35, 35);
+    border: 1px black solid;
 }
 
 .lifeLinesAndNext{
@@ -99,6 +113,7 @@ span{
     display:flex;
     
     flex-direction: column;
+    border: 1px black solid;
    
 }
 
@@ -112,4 +127,36 @@ span{
       color: inherit;
       background-color: rgb(255, 255, 255);
      
-    }
+}
+
+.question{
+    font-size: large;
+    text-align: center;
+    background: rgb(194,35,35);
+    background: -moz-radial-gradient(circle, rgba(194,35,35,1) 0%, rgba(121,9,9,1) 48%, rgba(2,0,36,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(194,35,35,1) 0%, rgba(121,9,9,1) 48%, rgba(2,0,36,1) 100%);
+    background: radial-gradient(circle, rgba(194,35,35,1) 0%, rgba(121,9,9,1) 48%, rgba(2,0,36,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c22323",endColorstr="#020024",GradientType=1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color:white;
+    text-shadow: black;
+    
+
+}
+
+.imgPresenter{
+    background-image: url("img/hubert.png");
+    width: 350px;
+    height: 300px;
+    background-size: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.pQuestion{
+    margin: 10px;
+}

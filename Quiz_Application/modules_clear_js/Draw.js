@@ -41,7 +41,7 @@ class Draw {
 
         this.setDraw = () => {
             this.POPUP.innerHTML = ``;
-            this.question = document.querySelector('.questionDIV p.question');
+            this.question = document.querySelector('.pQuestion');
             this.question.innerHTML = QUESTION.getQuestion();
             this.answerA.innerHTML = `A.` + QUESTION.getAnswerA();
             this.answerB.innerHTML = `B.` + QUESTION.getAnswerB();
