@@ -29,21 +29,6 @@ span{
     color: white;
 }
 
-.questionDIV{
-    background-color: pink;
-    width: 100%;
-    border: gray solid 5px;
-    border-radius: 10px;
-    transform: translate(-50%, -50%);
-    padding: 25px;
-
-    
-}
-
-.buttonConfirmQuestion{
-  
-}
-
 .popup{
   background-color: #fff;
   position: absolute;
@@ -64,7 +49,67 @@ span{
 
 .xPopup{
     position: absolute;
-    right: 0;
+    right: 10px;
     top: 0;
     cursor: pointer;
 }
+
+.questionDIV{
+    background-color: pink;
+    border: gray solid 5px;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    
+}
+
+.question{
+    background-color: white;
+
+}
+
+.answers{
+    background-color: blue;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    font-size: large;
+}
+
+.answer {
+    margin: auto;
+    background-color: gold;
+    padding: 20px;
+    width: 200px;
+
+
+}
+
+
+
+.reward{
+    background-color: yellow;
+}
+
+.lifeLinesAndNext{
+    background-color: green;
+    display:flex;
+    
+    flex-direction: column;
+   
+}
+
+.buttonOnGame{
+
+    flex-grow: 1;
+    padding: 0;
+      border: 1px gray solid;
+      outline: none;
+      font: rgb(255, 255, 255);
+      color: inherit;
+      background-color: rgb(255, 255, 255);
+     
+    }

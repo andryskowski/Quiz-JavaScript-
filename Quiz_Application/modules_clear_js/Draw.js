@@ -18,11 +18,14 @@ class Draw {
 
         //buttons for LifeLines
         this.buttonll1 = document.createElement("button");
-        document.body.appendChild(this.buttonll1);
+        document.querySelector(`.lifeLinesAndNext`).appendChild(this.buttonll1);
+        this.buttonll1.className = "buttonOnGame";
         this.buttonll2 = document.createElement("button");
-        document.body.appendChild(this.buttonll2);
+        this.buttonll2.className = "buttonOnGame";
+        document.querySelector(`.lifeLinesAndNext`).appendChild(this.buttonll2);
         this.buttonll3 = document.createElement("button");
-        document.body.appendChild(this.buttonll3);
+        this.buttonll3.className = "buttonOnGame";
+        document.querySelector(`.lifeLinesAndNext`).appendChild(this.buttonll3);
 
 
         //Popup where lifelines are displayed
@@ -268,13 +271,13 @@ class Draw {
             const PHONE_A_FRIEND = new PhoneAFriend(true);
             this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to ` + PHONE_A_FRIEND.getName();
             const ANSWER_FROM_FRIEND = PHONE_A_FRIEND.algorithmPhoneAFriend();
-            this.POPUP.innerHTML += ` Według mnie prawidłowa odpowiedź to: ${ANSWER_FROM_FRIEND}`
+            this.POPUP.innerHTML += ` Według niego prawidłowa odpowiedź to odpowiedź ${ANSWER_FROM_FRIEND}.`
         }
 
                 //'x' for popup
                 const X_POPUP = document.createElement("div");
                 this.POPUP.appendChild(X_POPUP);
-                X_POPUP.innerHTML = `X`;
+                X_POPUP.innerHTML = `x`;
                 X_POPUP.className = `xPopup`;
                 X_POPUP.addEventListener("click", (e) => { this.POPUP.style.display = `none` });
 
