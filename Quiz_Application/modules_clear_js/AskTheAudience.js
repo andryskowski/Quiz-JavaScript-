@@ -1,7 +1,7 @@
 class AskTheAudience extends LifeLine {
     constructor(isUsed) {
         super(isUsed);
-        let _name = `Ask The Audience!`;
+        let _name = `pytanie do publiczności!`;
         this.getName = () => _name;
         this.setName = (_newName) => _name = _newName;
 

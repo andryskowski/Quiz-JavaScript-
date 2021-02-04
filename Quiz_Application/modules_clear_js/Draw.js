@@ -28,8 +28,7 @@ class Draw {
         //Popup where lifelines are displayed
         this.POPUP = document.createElement("div");
         document.body.appendChild(this.POPUP);
-        this.POPUP.className = "popup";
-
+        
 
         this.drawButtonsLifeLines();
 
@@ -141,6 +140,7 @@ class Draw {
     }
 
     drawButtonsLifeLines() {
+
         this.buttonll1.innerHTML = "FiftyFifty";
         this.buttonll1.addEventListener("click", () => this.drawLifeLinePopUp("FiftyFifty"));
 
@@ -154,10 +154,15 @@ class Draw {
 
 
     drawLifeLinePopUp(LIFELINE_NAME) {
-        //FiftyFifty LifeLine
+        this.POPUP.className = "popup";
+        this.POPUP.style.display = `block`;
+
+        //FiftyFifty LifeLines
         if (LIFELINE_NAME == "FiftyFifty") {
+
+
             const FIFTYFIFTY = new FiftyFifty(true);
-            this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to: ` + FIFTYFIFTY.getName();
+            this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to ` + FIFTYFIFTY.getName();
             // FIFTYFIFTY.algorithmFiftyFifty(QUESTION.getAnswerTrue());
 
             const SHUFFLED_LIST_INCORRECT_ANSWERS = FIFTYFIFTY.algorithmFiftyFifty();
@@ -184,7 +189,7 @@ class Draw {
 
         else if (LIFELINE_NAME == "AskTheAudience") {
             const ASK_THE_AUDIENCE = new AskTheAudience(true);
-            this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to: ` + ASK_THE_AUDIENCE.getName();
+            this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to ` + ASK_THE_AUDIENCE.getName();
 
 
             const LIST_PERCENTS = ASK_THE_AUDIENCE.algorithmAskTheAudience();
@@ -239,8 +244,8 @@ class Draw {
                 PERCENT_B.innerHTML = `${LIST_PERCENTS[1]}%`;
                 PERCENT_B.style.width = `${LIST_PERCENTS[1]}%`;
 
-                PERCENT_C.innerHTML = `${LIST_PERCENTS[2]}%`;
-                PERCENT_C.style.width = `${LIST_PERCENTS[2]}%`;
+                PERCENT_A.innerHTML = `${LIST_PERCENTS[2]}%`;
+                PERCENT_A.style.width = `${LIST_PERCENTS[2]}%`;
 
                 PERCENT_D.innerHTML = `${LIST_PERCENTS[3]}%`;
                 PERCENT_D.style.width = `${LIST_PERCENTS[3]}%`;
@@ -261,10 +266,17 @@ class Draw {
         }
         else if (LIFELINE_NAME == "PhoneAFriend") {
             const PHONE_A_FRIEND = new PhoneAFriend(true);
-            this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to: ` + PHONE_A_FRIEND.getName();
+            this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to ` + PHONE_A_FRIEND.getName();
             const ANSWER_FROM_FRIEND = PHONE_A_FRIEND.algorithmPhoneAFriend();
-            this.POPUP.innerHTML += `Według mnie prawidłowa odpowiedź to: ${ANSWER_FROM_FRIEND}`
+            this.POPUP.innerHTML += ` Według mnie prawidłowa odpowiedź to: ${ANSWER_FROM_FRIEND}`
         }
+
+                //'x' for popup
+                const X_POPUP = document.createElement("div");
+                this.POPUP.appendChild(X_POPUP);
+                X_POPUP.innerHTML = `X`;
+                X_POPUP.className = `xPopup`;
+                X_POPUP.addEventListener("click", (e) => { this.POPUP.style.display = `none` });
 
     }
 

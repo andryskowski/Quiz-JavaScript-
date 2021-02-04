@@ -36,7 +36,7 @@ span{
     border-radius: 10px;
     transform: translate(-50%, -50%);
     padding: 25px;
-    height: 200px;
+
     
 }
 
@@ -48,7 +48,10 @@ span{
   background-color: #fff;
   position: absolute;
   left: 50%;
-  top: 80%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px;
+  border: black solid 2px;
 }
 
 .percent{
@@ -57,4 +60,11 @@ span{
 
 .fiftyFifty{
     color:gray;
+}
+
+.xPopup{
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
 }

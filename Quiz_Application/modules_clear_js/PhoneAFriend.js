@@ -1,7 +1,7 @@
 class PhoneAFriend extends LifeLine {
     constructor(isUsed) {
         super(isUsed);
-        let _name = `Phone a friend!`;
+        let _name = `telefon do przyjaciela!`;
         this.getName = () => _name;
         this.setName = (_newName) => _name = _newName;
 

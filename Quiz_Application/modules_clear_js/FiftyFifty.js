@@ -1,7 +1,7 @@
 class FiftyFifty extends LifeLine {
     constructor(isUsed) {
         super(isUsed);
-        let _name = `FiftyFifty!`;
+        let _name = `pół na pół!`;
         this.getName = () => _name;
         this.setName = (_newName) => _name = _newName;
 
