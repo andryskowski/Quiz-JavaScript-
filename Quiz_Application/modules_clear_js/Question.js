@@ -1,18 +1,14 @@
-
-
-let questions = [
-    {
-        idQuestion: 0,
-        question: 'Twoje ulubione jedzenie to?',
-        A: 'sojowa parówka',
-        B: 'mięsna parówka',
-        C: 'bułka kajzerka',
-        D: 'ziemniaczek',
-        trueAnswer: 'A'
-    }
-]
-
-
+// let questions = [
+//     {
+//         idQuestion: 0,
+//         question: 'Twoje ulubione jedzenie to?',
+//         A: 'sojowa parówka',
+//         B: 'mięsna parówka',
+//         C: 'bułka kajzerka',
+//         D: 'ziemniaczek',
+//         trueAnswer: 'A'
+//     }
+// ]
 
 
 class Question {
@@ -28,8 +24,10 @@ class Question {
             .then(response => response.json())
             .then(response => {
                 console.log(response)
-                this.quests = response;
-                // this.isLoaded = true;
+                const SHUFFLED_RESPONSE = this.shuffle(response);
+                for(let i = 0; i<12; i++) {
+                 this.quests.push(SHUFFLED_RESPONSE[i]);
+                }
                 this.questionsQuantity = this.quests.length;
                 draw.setDraw()
             })
@@ -69,13 +67,21 @@ class Question {
         }
 
 
-
         // this.getIsLoaded = () => {
         //     return this.isLoaded;
         // }
 
 
 
+    }
+
+
+    shuffle(a) {
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
     }
 }
 
