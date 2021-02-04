@@ -95,7 +95,7 @@ class Draw {
     changeQuestion() {
         // const button = document.querySelector('button');
         this.button.addEventListener("click", () => {
-            this.resetColorsAnswers();
+            
             if ((QUESTION.questionsQuantity - 1) > this.counter) {
                 QUESTION.setQuestionID(this.counter += 1);
 
