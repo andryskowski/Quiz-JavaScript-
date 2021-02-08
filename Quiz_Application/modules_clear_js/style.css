@@ -63,10 +63,12 @@ span{
   transform: translate(-50%, -50%);
   padding: 40px;
   border: black solid 2px;
+  width: 30%;
 }
 
 .percent{
-    background-color: blue;
+    background-color: darkred;
+    margin-bottom:5px;
 }
 
 .fiftyFifty{
@@ -92,10 +94,11 @@ span{
 }
 
 .answer {
-    margin: auto;
+
     background-color: gold;
     padding: 20px;
-    width: 200px;
+ 
+    
     border: 1px black solid;
 
 }
@@ -132,19 +135,32 @@ span{
 .question{
     font-size: large;
     text-align: center;
-    background: rgb(194,35,35);
-    background: -moz-radial-gradient(circle, rgba(194,35,35,1) 0%, rgba(121,9,9,1) 48%, rgba(2,0,36,1) 100%);
-    background: -webkit-radial-gradient(circle, rgba(194,35,35,1) 0%, rgba(121,9,9,1) 48%, rgba(2,0,36,1) 100%);
-    background: radial-gradient(circle, rgba(194,35,35,1) 0%, rgba(121,9,9,1) 48%, rgba(2,0,36,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c22323",endColorstr="#020024",GradientType=1);
+	background: linear-gradient(-45deg, #d11507, #a51b0b, #7a1b0c, #2d1106);
+    animation: gradient 7s ease infinite;
+    background-size: 400% 400%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     color:white;
     text-shadow: black;
-    
+    width: 560px;
+
 
 }
+
+@keyframes gradient {
+	0% {
+        background-position: 0% 50%;
+        
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+    }
+}
+
 
 .imgPresenter{
     background-image: url("img/hubert.png");
@@ -154,9 +170,44 @@ span{
     display: block;
     margin-left: auto;
     margin-right: auto;
+
     
 }
 
 .pQuestion{
     margin: 10px;
+    margin-top: 40px;
+
+}
+
+ol{
+    font-size: large;
+    text-align: center;
+    list-style-type: none;
+    /* position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    
+}
+
+ol > li{
+    margin: 5px 0;
+}
+
+.reward{
+    color: gold;
+    font-size: x-large;
+    text-align: center;
+}
+
+.actualLevel{
+    font-weight: bold;
+    text-decoration: underline;
+
+}
+
+.guaranteed{
+    color: orange;
+    
 }

@@ -1,20 +1,32 @@
 class Draw {
 
     constructor() {
-        this.button = document.querySelector('button');
-        this.button.innerHTML = 'Zatwierdź';
+        //button do zmiany pytania
+        this.buttonConfirmQuestion = document.createElement(`button`);
+        this.buttonConfirmQuestion.innerHTML = 'Zatwierdź';
+        document.querySelector(`.lifeLinesAndNext`).appendChild(this.buttonConfirmQuestion);
+        this.buttonConfirmQuestion.className = "buttonOnGame";
+
         let _result = this.drawResult();
         this.getDrawResult = () => _result;
+
+        //counter do zmieniania pytań
         this.counter = 0;
         this.changeQuestion();
+
+        //czy odpowiedz jest prawidlowa
         this.isCorrect = false;
+
+        //stan rozgrywki
+        this.RESULT = new Result();
+        this.actualState = this.RESULT.getActualState();
+
+        //pobranie elementow gdzie beda wstawione odpowiedzi
         this.answerA = document.querySelector('.questionDIV span.A');
         this.answerB = document.querySelector('.questionDIV span.B');
         this.answerC = document.querySelector('.questionDIV span.C');
         this.answerD = document.querySelector('.questionDIV span.D');
         this.BOARD = document.querySelector('.questionDIV');
-        // this.fiftyFifty = document.querySelector('#fiftyfifty');
-        // this.fiftyFiftyOnChange();
 
         //buttons for LifeLines
         this.buttonll1 = document.createElement("button");
@@ -27,18 +39,15 @@ class Draw {
         this.buttonll3.className = "buttonOnGame";
         document.querySelector(`.lifeLinesAndNext`).appendChild(this.buttonll3);
 
-
         //Popup where lifelines are displayed
         this.POPUP = document.createElement("div");
-        document.body.appendChild(this.POPUP);
-        
-
+        document.body.appendChild(this.POPUP);       
         this.drawButtonsLifeLines();
 
+        //Reward
 
-
-
-
+        this.showReward();
+        
         this.setDraw = () => {
             this.POPUP.innerHTML = ``;
             this.question = document.querySelector('.pQuestion');
@@ -82,6 +91,25 @@ class Draw {
         });
     }
 
+    showReward() {
+        this.rewardInfo = document.querySelector(`.reward`);
+        this.rewardInfo.className = `reward`;
+        this.ol = document.createElement("ol");
+        this.rewardInfo.appendChild(this.ol);
+        this.ol.className = `orderedList`;
+        const LEVELS = REWARD.getLevels();
+        LEVELS.forEach((element, index) => {
+            const ELEMENT_LIST = document.createElement(`li`);
+            ELEMENT_LIST.innerHTML = `${element}`;
+            ELEMENT_LIST.className = `${index}`;
+            this.ol.appendChild(ELEMENT_LIST);
+        });
+        document.querySelector(`.orderedList li:nth-child(${REWARD.getActualLevel()})`).className = `actualLevel`;
+        //gwarantowane 1000 i 40000 pln
+        document.querySelector(`.orderedList li:nth-child(11)`).className = `guaranteed`;
+        document.querySelector(`.orderedList li:nth-child(6)`).className = `guaranteed`;
+        }
+
     checkAnswer(checkedAnswer) {
         QUESTION.setMarkedAnswer(checkedAnswer);
         if (checkedAnswer === QUESTION.getAnswerTrue()) {
@@ -96,9 +124,25 @@ class Draw {
 
     changeQuestion() {
         // const button = document.querySelector('button');
-        this.button.addEventListener("click", () => {
+        this.buttonConfirmQuestion.addEventListener("click", () => {
+            //jesli jest rowny 1 to jest wygrana
+            if(REWARD.getActualLevel() > 1){
+            this.changeRewardElement()
+                if(REWARD.getActualLevel() == 10){
+                    const ACTUAL_GUARANTEED_REWARD = 400;
+                    REWARD.setGuaranteedReward(ACTUAL_GUARANTEED_REWARD);
+                }
+                else if (REWARD.getActualLevel() == 5)
+                {
+                    const ACTUAL_GUARANTEED_REWARD = 40000;
+                    REWARD.setGuaranteedReward(ACTUAL_GUARANTEED_REWARD);
+                }
+            }
+            
+
             this.resetColorsAnswers();
-            if ((QUESTION.questionsQuantity - 1) > this.counter) {
+            //jesli jeszcze nie ma ostatniego pytania
+            if ((QUESTION.getQuestionQuantity() - 1) > this.counter) {
                 QUESTION.setQuestionID(this.counter += 1);
 
                 draw.setDraw();
@@ -108,17 +152,38 @@ class Draw {
                 this.answerC.classList.remove('checkedAnswer');
                 this.answerD.classList.remove('checkedAnswer');
                 ANSWERS.addAnswerToList(QUESTION.getMarkedAnswer());
+
                 ANSWERS.addAnswerToListIsTrue(this.isCorrect);
+
             }
-            else if ((QUESTION.questionsQuantity - 1) === this.counter) {
+            //jesli zatwierdzi się wszystkie pytania
+            else if ((QUESTION.getQuestionQuantity() - 1) === this.counter) {
+                console.log('tu')
                 ANSWERS.addAnswerToList(QUESTION.getMarkedAnswer());
                 ANSWERS.addAnswerToListIsTrue(this.isCorrect);
-                this.button.innerHTML = 'Zakończ test';
-                this.cleanBoard();
-                const RESULT = new Result();
-                RESULT.setResult();
+                if(this.isCorrect == true){
+                this.RESULT.setActualState('victory');
+                this.RESULT.setResult();
+                }
             }
+
+            if(this.isCorrect == false)
+            {
+                this.RESULT.setActualState('wrongAnswer');
+                this.RESULT.setResult();
+            }
+            this.isCorrect=false;
         });
+        //na koniec isCorrect musi byc false, bo po jednej dobrej odpowiedzi, kazda nastepna jest dobra
+        
+    }
+
+    changeRewardElement() {
+        
+        document.querySelector(`.orderedList li:nth-child(${REWARD.getActualLevel()})`).classList.remove(`actualLevel`);
+        REWARD.setActualLevel(REWARD.getActualLevel()-1);
+        document.querySelector(`.orderedList li:nth-child(${REWARD.getActualLevel()})`).className = `actualLevel`;
+        
     }
 
     resetColorsAnswers() {
@@ -132,11 +197,13 @@ class Draw {
         this.BOARD.innerHTML = '';
     }
 
-    showResults() {
-        this.BOARD.innerHTML = '<h1>ELO ZAKOŃCZYŁEŚ TEST</h1>';
-        this.BOARD.innerHTML += '<h2>Twoje rezultaty to:</h2>';
-        this.BOARD.innerHTML += ANSWERS.getAnswersList();
-    }
+    // showResults() {
+    //     if(state == 'victory'){
+    //     this.BOARD.innerHTML = '<h1>Wygrałeś milion!!</h1>';
+    //     this.BOARD.innerHTML += '<h2>Gratulujemy!!:</h2>';
+    //     this.BOARD.innerHTML += ANSWERS.getAnswersList();
+    //     }
+    // }
 
     drawResult() {
 

@@ -53,6 +53,9 @@ app.get('/modules_clear_js/LifeLine.js', (req, res) => {
     res.sendFile(__dirname + '/modules_clear_js/LifeLine.js');
 });
 
+app.get('/modules_clear_js/Reward.js', (req, res) => {
+    res.sendFile(__dirname + '/modules_clear_js/Reward.js');
+});
 
 
 //connect to db
