@@ -23,6 +23,7 @@ body{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    
 }
 
 
@@ -40,6 +41,7 @@ body{
     left: 50%;
     top: 50%;
     border: 1px black solid;
+    z-index: 3;
     
 }
 
@@ -64,6 +66,7 @@ span{
   padding: 40px;
   border: black solid 2px;
   width: 30%;
+  z-index: 10;
 }
 
 .percent{
@@ -80,9 +83,12 @@ span{
     right: 10px;
     top: 0;
     cursor: pointer;
+    
 }
 
-
+.actualReward{
+    margin: 2px;
+}
 
 
 .answers{
@@ -91,7 +97,7 @@ span{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     font-size: large;
-    z-index: 2;
+    z-index: 3;
 }
 
 .answer {
@@ -113,7 +119,6 @@ span{
 }
 
 .lifeLinesAndNext{
-    background-color: green;
     display:flex;
     
     flex-direction: column;
@@ -129,13 +134,17 @@ span{
     outline: none;
     
     color: rgb(36, 35, 35);
-    background-color: rgb(255, 255, 255);
-    transition-duration: .5s;
+    background-color: #FFFDD0;
+    transition-duration: .4s;
+    border: 1px lightgray solid;
+ 
+
      
 }
 
 .buttonOnGame:hover{
     background-color: gold;
+    font-weight: bold;
 }
 
 .question{
@@ -226,4 +235,128 @@ ol > li{
 .usedButton{
     color: darkgray;
     cursor: pointer;
+}
+
+.animatedReward{
+    
+    color:transparent;
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 5px black;
+    bottom: -20%;
+    animation: animatedReward 2.5s ease-in-out;
+    /* bottom: 450px; */
+    /* bottom: -50px; */
+}
+
+@keyframes animatedReward {
+	0% {
+        bottom: -20%;
+        color: transparent;
+        
+        
+    }
+    50%{
+        bottom: 60%;
+        color: gold;
+
+    }
+	80% {
+        bottom: 60%;
+        color: gold;
+        text-shadow: 2px 2px 5px gold;
+        opacity: 100%;
+        
+    }
+    100% {
+        opacity: 0%;
+        bottom: 60%;
+    }
+}
+
+.boardAfterGame{
+    background-color: white;
+    border: gray solid 5px;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1px black solid;
+    z-index: 3;
+}
+
+.pAfterGiveUp{
+    text-align: center;
+    display: inline-block;
+    margin: 20px;
+}
+
+.fa-sad-tear{
+    color: gold;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 3em;
+}
+
+/* PLAY AGAIN BUTTON AND BACKGROUND BTN PLAY AGAIN */
+
+.buttonPlayAgain{
+    border: none;
+    background-color: white;
+    font-size: x-large;
+    position: relative;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+    overflow: hidden;
+    font-weight: bold;
+   
+
+    
+}
+
+
+.buttonPlayAgain:hover{
+    color: gold;
+    cursor: pointer;
+}
+
+.buttonPlayAgain:visited{
+    outline:none;
+}
+
+.buttonPlayAgain:focus{
+    outline: none;
+}
+
+.buttonPlayAgain::after{
+    content: "";
+    width: 100%;
+    height:  2px;
+    background-color: transparent;
+    display: block;
+    position: relative;
+    animation: btnPlayAgainAnimation 4s ease infinite;
+    z-index: 9;
+}
+
+@keyframes btnPlayAgainAnimation {
+	0% {
+        left: 100%;
+        
+        
+	}
+	50% {
+        left: 0%;
+        background-color: gold;
+    }
+
+	100% {
+        left: -100%;
+        
+    }
 }

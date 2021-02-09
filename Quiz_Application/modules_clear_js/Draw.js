@@ -2,6 +2,7 @@ class Draw {
 
     constructor() {
         
+
         //button do zmiany pytania
         this.buttonConfirmQuestion = document.createElement(`button`);
         this.buttonConfirmQuestion.innerHTML = 'Next question';
@@ -137,6 +138,7 @@ class Draw {
     changeQuestion() {
         // const button = document.querySelector('button');
         this.buttonConfirmQuestion.addEventListener("click", () => {
+            
             this.changePresenterImg();
             //jesli jest rowny 1 to jest wygrana
             if (REWARD.getActualLevel() > 1) {
@@ -184,6 +186,7 @@ class Draw {
                 this.RESULT.setResult();
             }
             this.isCorrect = false;
+            this.drawAnimationAfterTrueAnswer();
         });
  
     }
@@ -233,7 +236,19 @@ class Draw {
         setTimeout(function(){ document.querySelector(`.imgPresenter`).style.backgroundImage = "url('img/hubert.png')"; }, 1000);
     }
 
+    drawAnimationAfterTrueAnswer(){
+        // const DIV_QUESTION = document.querySelector(`.question`);
+        const ACTUAL_REWARD = document.createElement("h1");
+        ACTUAL_REWARD.innerHTML = `${REWARD.getActualReward()}$`;
+        ACTUAL_REWARD.classList.add(`animatedReward`);
+        document.querySelector(`.question`).appendChild(ACTUAL_REWARD);
+        setTimeout(function(){ document.querySelector(`.question`).removeChild(ACTUAL_REWARD); }, 2500);
 
+
+        // const PERCENT_A = document.createElement("div");
+        //     this.POPUP.appendChild(PERCENT_A);
+        //     PERCENT_A.className = `percent`;
+    }
 
 
     drawLifeLinePopUp(LIFELINE_NAME) {
