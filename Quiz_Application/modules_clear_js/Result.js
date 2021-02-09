@@ -19,7 +19,13 @@ class Result{
             }
             else if (this.getActualState() === 'giveUp')
             {
-                console.log('give up');
+                if(REWARD.getActualReward() >= 500){
+                this.BOARD.innerHTML = `<p>Twoja nagroda to: ${REWARD.getActualReward()}$.</p>`;
+                }
+                else
+                {
+                    this.BOARD.innerHTML = `<p>Twoja nagroda to: ${0}$.</p>`;
+                }
             }
             else if (this.getActualState() === 'wrongAnswer')
             {

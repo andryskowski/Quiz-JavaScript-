@@ -72,7 +72,7 @@ span{
 }
 
 .fiftyFifty{
-    color:gray;
+    color:gold;
 }
 
 .xPopup{
@@ -86,11 +86,12 @@ span{
 
 
 .answers{
-    background-color: blue;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     font-size: large;
+    z-index: 2;
 }
 
 .answer {
@@ -121,26 +122,31 @@ span{
 }
 
 .buttonOnGame{
-
+    cursor: pointer;
     flex-grow: 1;
     padding: 0;
-      border: 1px gray solid;
-      outline: none;
-      font: rgb(255, 255, 255);
-      color: inherit;
-      background-color: rgb(255, 255, 255);
+    border: 1px gray solid;
+    outline: none;
+    
+    color: rgb(36, 35, 35);
+    background-color: rgb(255, 255, 255);
+    transition-duration: .5s;
      
+}
+
+.buttonOnGame:hover{
+    background-color: gold;
 }
 
 .question{
     font-size: large;
     text-align: center;
 	background: linear-gradient(-45deg, #d11507, #a51b0b, #7a1b0c, #2d1106);
-    animation: gradient 7s ease infinite;
+    animation: gradient 3s ease infinite;
     background-size: 400% 400%;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; */
     color:white;
     text-shadow: black;
     width: 560px;
@@ -164,19 +170,24 @@ span{
 
 .imgPresenter{
     background-image: url("img/hubert.png");
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 350px;
     height: 300px;
     background-size: cover;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-
-    
+    z-index: 0;
+   
+    /* position: relative;
+    left: 0;
+    bottom: 0; */
 }
 
 .pQuestion{
     margin: 10px;
     margin-top: 40px;
+    height: 20px;
 
 }
 
@@ -210,4 +221,9 @@ ol > li{
 .guaranteed{
     color: orange;
     
+}
+
+.usedButton{
+    color: darkgray;
+    cursor: pointer;
 }

@@ -1,13 +1,13 @@
 class Draw {
 
     constructor() {
+        
         //button do zmiany pytania
         this.buttonConfirmQuestion = document.createElement(`button`);
-        this.buttonConfirmQuestion.innerHTML = 'Zatwierdź';
+        this.buttonConfirmQuestion.innerHTML = 'Next question';
         document.querySelector(`.lifeLinesAndNext`).appendChild(this.buttonConfirmQuestion);
         this.buttonConfirmQuestion.className = "buttonOnGame";
 
-        let _result = this.drawResult();
         this.getDrawResult = () => _result;
 
         //counter do zmieniania pytań
@@ -28,26 +28,38 @@ class Draw {
         this.answerD = document.querySelector('.questionDIV span.D');
         this.BOARD = document.querySelector('.questionDIV');
 
-        //buttons for LifeLines
+        //buttony do dokumentu
         this.buttonll1 = document.createElement("button");
         document.querySelector(`.lifeLinesAndNext`).appendChild(this.buttonll1);
         this.buttonll1.className = "buttonOnGame";
+        this.buttonll1IsUsed = true;
+
         this.buttonll2 = document.createElement("button");
         this.buttonll2.className = "buttonOnGame";
         document.querySelector(`.lifeLinesAndNext`).appendChild(this.buttonll2);
+        this.buttonll2IsUsed = true;
+
         this.buttonll3 = document.createElement("button");
         this.buttonll3.className = "buttonOnGame";
         document.querySelector(`.lifeLinesAndNext`).appendChild(this.buttonll3);
+        this.buttonll3IsUsed = true;
+
+        //zrezygnuj
+        this.buttonGiveUp = document.createElement("button");
+        this.buttonGiveUp.className = "buttonOnGame";
+        this.buttonGiveUp.innerHTML = 'Give up';
+        document.querySelector(`.lifeLinesAndNext`).appendChild(this.buttonGiveUp);
+        this.drawButtonGiveUp();
 
         //Popup where lifelines are displayed
         this.POPUP = document.createElement("div");
-        document.body.appendChild(this.POPUP);       
+        document.body.appendChild(this.POPUP);
         this.drawButtonsLifeLines();
 
         //Reward
 
         this.showReward();
-        
+
         this.setDraw = () => {
             this.POPUP.innerHTML = ``;
             this.question = document.querySelector('.pQuestion');
@@ -93,7 +105,7 @@ class Draw {
 
     showReward() {
         this.rewardInfo = document.querySelector(`.reward`);
-        this.rewardInfo.className = `reward`;
+        this.rewardInfo.classList.add(`reward`);
         this.ol = document.createElement("ol");
         this.rewardInfo.appendChild(this.ol);
         this.ol.className = `orderedList`;
@@ -108,7 +120,7 @@ class Draw {
         //gwarantowane 1000 i 40000 pln
         document.querySelector(`.orderedList li:nth-child(11)`).className = `guaranteed`;
         document.querySelector(`.orderedList li:nth-child(6)`).className = `guaranteed`;
-        }
+    }
 
     checkAnswer(checkedAnswer) {
         QUESTION.setMarkedAnswer(checkedAnswer);
@@ -125,20 +137,20 @@ class Draw {
     changeQuestion() {
         // const button = document.querySelector('button');
         this.buttonConfirmQuestion.addEventListener("click", () => {
+            this.changePresenterImg();
             //jesli jest rowny 1 to jest wygrana
-            if(REWARD.getActualLevel() > 1){
-            this.changeRewardElement()
-                if(REWARD.getActualLevel() == 10){
+            if (REWARD.getActualLevel() > 1) {
+                this.changeRewardElement()
+                if (REWARD.getActualLevel() == 10) {
                     const ACTUAL_GUARANTEED_REWARD = 400;
                     REWARD.setGuaranteedReward(ACTUAL_GUARANTEED_REWARD);
                 }
-                else if (REWARD.getActualLevel() == 5)
-                {
+                else if (REWARD.getActualLevel() == 5) {
                     const ACTUAL_GUARANTEED_REWARD = 40000;
                     REWARD.setGuaranteedReward(ACTUAL_GUARANTEED_REWARD);
                 }
             }
-            
+
 
             this.resetColorsAnswers();
             //jesli jeszcze nie ma ostatniego pytania
@@ -161,29 +173,27 @@ class Draw {
                 console.log('tu')
                 ANSWERS.addAnswerToList(QUESTION.getMarkedAnswer());
                 ANSWERS.addAnswerToListIsTrue(this.isCorrect);
-                if(this.isCorrect == true){
-                this.RESULT.setActualState('victory');
-                this.RESULT.setResult();
+                if (this.isCorrect == true) {
+                    this.RESULT.setActualState('victory');
+                    this.RESULT.setResult();
                 }
             }
 
-            if(this.isCorrect == false)
-            {
+            if (this.isCorrect == false) {
                 this.RESULT.setActualState('wrongAnswer');
                 this.RESULT.setResult();
             }
-            this.isCorrect=false;
+            this.isCorrect = false;
         });
-        //na koniec isCorrect musi byc false, bo po jednej dobrej odpowiedzi, kazda nastepna jest dobra
-        
+ 
     }
 
     changeRewardElement() {
-        
+
         document.querySelector(`.orderedList li:nth-child(${REWARD.getActualLevel()})`).classList.remove(`actualLevel`);
-        REWARD.setActualLevel(REWARD.getActualLevel()-1);
-        document.querySelector(`.orderedList li:nth-child(${REWARD.getActualLevel()})`).className = `actualLevel`;
-        
+        REWARD.setActualLevel(REWARD.getActualLevel() - 1);
+        document.querySelector(`.orderedList li:nth-child(${REWARD.getActualLevel()})`).classList.add(`actualLevel`);
+
     }
 
     resetColorsAnswers() {
@@ -197,39 +207,42 @@ class Draw {
         this.BOARD.innerHTML = '';
     }
 
-    // showResults() {
-    //     if(state == 'victory'){
-    //     this.BOARD.innerHTML = '<h1>Wygrałeś milion!!</h1>';
-    //     this.BOARD.innerHTML += '<h2>Gratulujemy!!:</h2>';
-    //     this.BOARD.innerHTML += ANSWERS.getAnswersList();
-    //     }
-    // }
 
-    drawResult() {
-
+    drawButtonGiveUp() {
+        this.buttonGiveUp.addEventListener("click", () => {
+        this.RESULT.setActualState('giveUp')
+        this.RESULT.setResult();
+    });
+        
     }
 
     drawButtonsLifeLines() {
 
-        this.buttonll1.innerHTML = "FiftyFifty";
+        this.buttonll1.innerHTML = "50/50";
         this.buttonll1.addEventListener("click", () => this.drawLifeLinePopUp("FiftyFifty"));
 
-        this.buttonll2.innerHTML = "AskTheAudience";
+        this.buttonll2.innerHTML = "Ask The Audience";
         this.buttonll2.addEventListener("click", () => this.drawLifeLinePopUp("AskTheAudience"));
 
         this.buttonll3.innerHTML = "Phone A Friend";
         this.buttonll3.addEventListener("click", () => this.drawLifeLinePopUp("PhoneAFriend"));
     }
 
+    changePresenterImg() {
+        document.querySelector(`.imgPresenter`).style.backgroundImage = "url('img/hubert_2.png')";
+        setTimeout(function(){ document.querySelector(`.imgPresenter`).style.backgroundImage = "url('img/hubert.png')"; }, 1000);
+    }
+
+
 
 
     drawLifeLinePopUp(LIFELINE_NAME) {
-        this.POPUP.className = "popup";
-        this.POPUP.style.display = `block`;
+
 
         //FiftyFifty LifeLines
-        if (LIFELINE_NAME == "FiftyFifty") {
-
+        if (LIFELINE_NAME == "FiftyFifty" && this.buttonll1IsUsed == true) {
+            this.POPUP.className = "popup";
+            this.POPUP.style.display = `block`;
 
             const FIFTYFIFTY = new FiftyFifty(true);
             this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to ` + FIFTYFIFTY.getName();
@@ -237,27 +250,33 @@ class Draw {
 
             const SHUFFLED_LIST_INCORRECT_ANSWERS = FIFTYFIFTY.algorithmFiftyFifty();
             if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "B")
-                this.answerB.className = `fiftyFifty`;
+                this.answerB.classList.add(`fiftyFifty`);
             else if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "C")
-                this.answerC.className = `fiftyFifty`;
+                this.answerC.classList.add(`fiftyFifty`);
             else if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "D")
-                this.answerD.className = `fiftyFifty`;
+                this.answerD.classList.add(`fiftyFifty`);
             else if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "A")
-                this.answerA.className = `fiftyFifty`;
+                this.answerA.classList.add(`fiftyFifty`);
 
             if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "B")
-                this.answerB.className = `fiftyFifty`;
+                this.answerB.classList.add(`fiftyFifty`);
             else if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "C")
-                this.answerC.className = `fiftyFifty`;
+                this.answerC.classList.add(`fiftyFifty`);
             else if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "D")
-                this.answerD.className = `fiftyFifty`;
+                this.answerD.classList.add(`fiftyFifty`);
             else if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "A")
-                this.answerA.className = `fiftyFifty`;
+                this.answerA.classList.add(`fiftyFifty`);
 
-            this.buttonll1.innerHTML = "wykorzystany";
+            this.buttonll1.classList.add('usedButton');
+
+            this.buttonll1IsUsed = false;
+
         }
 
-        else if (LIFELINE_NAME == "AskTheAudience") {
+        else if (LIFELINE_NAME == "AskTheAudience" && this.buttonll2IsUsed == true) {
+            this.POPUP.className = "popup";
+            this.POPUP.style.display = `block`;
+
             const ASK_THE_AUDIENCE = new AskTheAudience(true);
             this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to ` + ASK_THE_AUDIENCE.getName();
 
@@ -333,20 +352,27 @@ class Draw {
                 PERCENT_A.innerHTML = `${LIST_PERCENTS[3]}%`;
                 PERCENT_A.style.width = `${LIST_PERCENTS[3]}%`;
             }
+            this.buttonll2.classList.add('usedButton');
+            this.buttonll2IsUsed = false;
         }
-        else if (LIFELINE_NAME == "PhoneAFriend") {
+        else if (LIFELINE_NAME == "PhoneAFriend" && this.buttonll3IsUsed == true) {
+            this.POPUP.className = "popup";
+            this.POPUP.style.display = `block`;
+
             const PHONE_A_FRIEND = new PhoneAFriend(true);
             this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to ` + PHONE_A_FRIEND.getName();
             const ANSWER_FROM_FRIEND = PHONE_A_FRIEND.algorithmPhoneAFriend();
-            this.POPUP.innerHTML += ` Według niego prawidłowa odpowiedź to odpowiedź ${ANSWER_FROM_FRIEND}.`
+            this.POPUP.innerHTML += ` Według niego prawidłowa odpowiedź to odpowiedź ${ANSWER_FROM_FRIEND}.`;
+            this.buttonll3.classList.add('usedButton');
+            this.buttonll3IsUsed = false;
         }
 
-                //'x' for popup
-                const X_POPUP = document.createElement("div");
-                this.POPUP.appendChild(X_POPUP);
-                X_POPUP.innerHTML = `x`;
-                X_POPUP.className = `xPopup`;
-                X_POPUP.addEventListener("click", (e) => { this.POPUP.style.display = `none` });
+        //'x' for popup
+        const X_POPUP = document.createElement("div");
+        this.POPUP.appendChild(X_POPUP);
+        X_POPUP.innerHTML = `x`;
+        X_POPUP.className = `xPopup`;
+        X_POPUP.addEventListener("click", (e) => { this.POPUP.style.display = `none` });
 
     }
 
