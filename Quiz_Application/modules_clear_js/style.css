@@ -88,6 +88,7 @@ span{
 
 .actualReward{
     margin: 2px;
+    
 }
 
 
@@ -244,7 +245,7 @@ ol > li{
     z-index: 2;
     text-shadow: 2px 2px 5px black;
     bottom: -20%;
-    animation: animatedReward 2.5s ease-in-out;
+    animation: animatedReward 1.5s ease-in-out;
     /* bottom: 450px; */
     /* bottom: -50px; */
 }
@@ -289,16 +290,19 @@ ol > li{
 
 .pAfterGiveUp{
     text-align: center;
-    display: inline-block;
+    /* display: inline-block; */
     margin: 20px;
 }
 
-.fa-sad-tear{
+.fas{
+    
     color: gold;
-    text-align: center;
+    
     width: 100%;
     margin-bottom: 20px;
     font-size: 3em;
+    position: relative;
+    text-align: center;
 }
 
 /* PLAY AGAIN BUTTON AND BACKGROUND BTN PLAY AGAIN */

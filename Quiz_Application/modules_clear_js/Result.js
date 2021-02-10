@@ -17,8 +17,7 @@ class Result{
 
 
             if(this.getActualState() == `victory`){
-            this.BOARD.innerHTML = `<p class="pAfterGiveUp">Gratulacje, wygrałeś milion!! Twój rezultat to ${ANSWERS.countCorrectAnswers()} 
-            prawidłowych odpowiedzi na ${QUESTION.questionsQuantity} pytania.</p>`;
+            this.BOARD.innerHTML = `<p class="pAfterGiveUp">Congratulations, you are a millionaire !!</p> <i class="fas fa-trophy"></i>`;
             }
             else if (this.getActualState() === 'inProgress')
             {
@@ -27,16 +26,16 @@ class Result{
             else if (this.getActualState() === 'giveUp')
             {
                 if(REWARD.getActualReward() >= 500){
-                this.BOARD.innerHTML = `<p class="pAfterGiveUp">Unfortunately, this is the wrong answer. Your reward is: ${REWARD.getActualReward()}$. Thank you for playing. You can try again!</p> `;
+                this.BOARD.innerHTML = `<p class="pAfterGiveUp">Your reward is: ${REWARD.getActualReward()}$. Thank you for playing. You can try again!</p> `;
                 }
                 else
                 {
-                    this.BOARD.innerHTML = ` <p class="pAfterGiveUp">Unfortunately, this is the wrong answer. Your reward is: ${0}$. Thank you for playing. You can try again!</p> <i class="fas fa-sad-tear"></i>`;
+                    this.BOARD.innerHTML = ` <p class="pAfterGiveUp">Your reward is: ${0}$. Thank you for playing. You can try again!</p> <i class="fas fa-sad-tear"></i>`;
                 }
             }
             else if (this.getActualState() === 'wrongAnswer')
             {
-                this.BOARD.innerHTML = `<p class="pAfterGiveUp">Niestety, ale odpowiedz jest nieprawidlowa. Twoja gwarantowana nagroda to: ${REWARD.getGuaranteedReward()}$.</p>`;
+                this.BOARD.innerHTML = `<p class="pAfterGiveUp">Unfortunately, this is the wrong answer. Your guaranteed reward is: ${REWARD.getGuaranteedReward()}$.Thank you for playing. You can try again!</p> <i class="fas fa-sad-tear"></i>`;
             }
             const PLAY_AGAIN = document.createElement("button");
             PLAY_AGAIN.classList.add(`buttonPlayAgain`);

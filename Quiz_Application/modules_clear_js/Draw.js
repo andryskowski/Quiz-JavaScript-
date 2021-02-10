@@ -57,6 +57,8 @@ class Draw {
         document.body.appendChild(this.POPUP);
         this.drawButtonsLifeLines();
 
+        this.ifCanChangeQue = true;
+
         //Reward
 
         this.showReward();
@@ -113,7 +115,7 @@ class Draw {
         const LEVELS = REWARD.getLevels();
         LEVELS.forEach((element, index) => {
             const ELEMENT_LIST = document.createElement(`li`);
-            ELEMENT_LIST.innerHTML = `${element}`;
+            ELEMENT_LIST.innerHTML = `${element}$`;
             ELEMENT_LIST.className = `${index}`;
             this.ol.appendChild(ELEMENT_LIST);
         });
@@ -126,11 +128,11 @@ class Draw {
     checkAnswer(checkedAnswer) {
         QUESTION.setMarkedAnswer(checkedAnswer);
         if (checkedAnswer === QUESTION.getAnswerTrue()) {
-            alert('Prawidłowa odpowiedź!');
+            // alert('Prawidłowa odpowiedź!');
             this.isCorrect = true;
         }
         else {
-            alert('Nieprawidłowa odpowiedź! :(');
+            // alert('Nieprawidłowa odpowiedź! :(');
             this.isCorrect = false;
         }
     }
@@ -156,7 +158,7 @@ class Draw {
 
             this.resetColorsAnswers();
             //jesli jeszcze nie ma ostatniego pytania
-            if ((QUESTION.getQuestionQuantity() - 1) > this.counter) {
+            if ((QUESTION.getQuestionQuantity() - 1) > this.counter && this.ifCanChangeQue == true) {
                 QUESTION.setQuestionID(this.counter += 1);
 
                 draw.setDraw();
@@ -242,7 +244,11 @@ class Draw {
         ACTUAL_REWARD.innerHTML = `${REWARD.getActualReward()}$`;
         ACTUAL_REWARD.classList.add(`animatedReward`);
         document.querySelector(`.question`).appendChild(ACTUAL_REWARD);
-        setTimeout(function(){ document.querySelector(`.question`).removeChild(ACTUAL_REWARD); }, 2500);
+        setTimeout(function(){ document.querySelector(`.animatedReward`).style.backgroundImage = "url('img/hubert.png')";
+        document.querySelector(`.question`).removeChild(ACTUAL_REWARD);
+        this.ifCanChangeQue = false;
+    }, 2500);
+        this.ifCanChangeQue = true;
 
 
         // const PERCENT_A = document.createElement("div");
