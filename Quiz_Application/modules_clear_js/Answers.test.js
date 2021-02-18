@@ -25,4 +25,13 @@ describe('add', () => {
         expect(ACTUAL_COUNT).toBeGreaterThan(0)
 
     })
+    it('throws error when no answer given', () => {
+        const subject = new Answers();
+        expect(() => {
+            subject.addAnswerToList();
+        }).toThrow('Answer needed!');
+        
+
+    })
+
 })
