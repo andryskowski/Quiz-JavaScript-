@@ -8,11 +8,8 @@
 } 
 
 body{
-
     font-size: 2em;
     font-family: 'Open Sans', sans-serif;
-
-
 }
 
 .bgQuestion{
@@ -23,7 +20,6 @@ body{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    
 }
 
 
@@ -42,7 +38,6 @@ body{
     top: 50%;
     border: 1px black solid;
     z-index: 3;
-    
 }
 
 
@@ -73,7 +68,6 @@ span{
     background-color: darkred;
     margin-bottom:5px;
     white-space: nowrap;
-
 }
 
 .fiftyFifty{
@@ -85,17 +79,14 @@ span{
     right: 10px;
     top: 0;
     cursor: pointer;
-    
 }
 
 .actualReward{
     margin: 2px;
-    
 }
 
 
 .answers{
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -104,13 +95,9 @@ span{
 }
 
 .answer {
-
     background-color: gold;
     padding: 20px;
- 
-    
     border: 1px black solid;
-
 }
 
 
@@ -123,7 +110,6 @@ span{
 
 .lifeLinesAndNext{
     display:flex;
-    
     flex-direction: column;
     border: 1px black solid;
    
@@ -135,14 +121,10 @@ span{
     padding: 0;
     border: 1px gray solid;
     outline: none;
-    
     color: rgb(36, 35, 35);
     background-color: #FFFDD0;
     transition-duration: .4s;
     border: 1px lightgray solid;
- 
-
-     
 }
 
 .buttonOnGame:hover{
@@ -162,8 +144,7 @@ span{
     color:white;
     text-shadow: black;
     width: 560px;
-
-
+    height: 440px;
 }
 
 @keyframes gradient {
@@ -190,28 +171,18 @@ span{
     height: 300px;
     background-size: cover;
     z-index: 0;
-   
-    /* position: relative;
-    left: 0;
-    bottom: 0; */
 }
 
 .pQuestion{
     margin: 10px;
     margin-top: 40px;
     height: 20px;
-
 }
 
 ol{
     font-size: large;
     text-align: center;
     list-style-type: none;
-    /* position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-    
 }
 
 ol > li{
@@ -241,35 +212,28 @@ ol > li{
 }
 
 .animatedReward{
-    
     color:transparent;
     position: relative;
     z-index: 2;
     text-shadow: 2px 2px 5px black;
     bottom: -20%;
     animation: animatedReward 1.5s ease-in-out;
-    /* bottom: 450px; */
-    /* bottom: -50px; */
 }
 
 @keyframes animatedReward {
 	0% {
         bottom: -20%;
         color: transparent;
-        
-        
     }
     50%{
         bottom: 60%;
         color: gold;
-
     }
 	80% {
         bottom: 60%;
         color: gold;
         text-shadow: 2px 2px 5px gold;
         opacity: 100%;
-        
     }
     100% {
         opacity: 0%;
@@ -282,7 +246,6 @@ ol > li{
     border: gray solid 5px;
     border-radius: 10px;
     transform: translate(-50%, -50%);
-    
     position: absolute;
     left: 50%;
     top: 50%;
@@ -297,9 +260,7 @@ ol > li{
 }
 
 .fas{
-    
     color: gold;
-    
     width: 100%;
     margin-bottom: 20px;
     font-size: 3em;
@@ -320,9 +281,6 @@ ol > li{
     letter-spacing: 5px;
     overflow: hidden;
     font-weight: bold;
-   
-
-    
 }
 
 
@@ -353,8 +311,6 @@ ol > li{
 @keyframes btnPlayAgainAnimation {
 	0% {
         left: 100%;
-        
-        
 	}
 	50% {
         left: 0%;
@@ -363,6 +319,5 @@ ol > li{
 
 	100% {
         left: -100%;
-        
     }
 }

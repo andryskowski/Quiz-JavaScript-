@@ -174,7 +174,7 @@ class Draw {
             }
             //jesli zatwierdzi się wszystkie pytania
             else if ((QUESTION.getQuestionQuantity() - 1) === this.counter) {
-                console.log('tu')
+                
                 ANSWERS.addAnswerToList(QUESTION.getMarkedAnswer());
                 ANSWERS.addAnswerToListIsTrue(this.isCorrect);
                 if (this.isCorrect == true) {

@@ -4,6 +4,9 @@ class Answers {
         this.answersListIsTrue = [];
         this.getAnswersList = () => this.answersList;
         this.addAnswerToList = (answer) => {
+            if(!answer){
+                throw new Error("Answer needed!");
+            }
             this.answersList.push(answer);
         }
         this.addAnswerToListIsTrue = (answer) => {
