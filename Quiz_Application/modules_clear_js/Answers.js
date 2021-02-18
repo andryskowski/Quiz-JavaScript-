@@ -23,3 +23,5 @@ class Answers {
     }
 
 }
+
+module.exports = Answers;
