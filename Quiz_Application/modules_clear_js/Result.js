@@ -4,10 +4,6 @@ class Result{
         this.BOARD_AFTER_GAME.classList.add(`boardAfterGame`);
         this.BOARD = document.querySelector('.bgQuestion').appendChild(this.BOARD_AFTER_GAME);
 
-
-        
-
-
         this.actualState = 'inProgress';
         this.getActualState = () =>  this.actualState;
         this.setActualState = (_newState) => this.actualState = _newState;

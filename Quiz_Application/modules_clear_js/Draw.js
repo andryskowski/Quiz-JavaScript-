@@ -322,55 +322,55 @@ class Draw {
             PERCENT_D.className = `percent`;
 
             if (QUESTION.getAnswerTrue() == "A") {
-                PERCENT_A.innerHTML = `${MAX_PERCENT}%`;
+                PERCENT_A.innerHTML = `A. ${MAX_PERCENT}%`;
                 PERCENT_A.style.width = `${MAX_PERCENT}%`;
 
-                PERCENT_B.innerHTML = `${LIST_PERCENTS[1]}%`;
+                PERCENT_B.innerHTML = `B. ${LIST_PERCENTS[1]}%`;
                 PERCENT_B.style.width = `${LIST_PERCENTS[1]}%`;
 
-                PERCENT_C.innerHTML = `${LIST_PERCENTS[2]}%`;
+                PERCENT_C.innerHTML = `C. ${LIST_PERCENTS[2]}%`;
                 PERCENT_C.style.width = `${LIST_PERCENTS[2]}%`;
 
-                PERCENT_D.innerHTML = `${LIST_PERCENTS[3]}%`;
+                PERCENT_D.innerHTML = `D. ${LIST_PERCENTS[3]}%`;
                 PERCENT_D.style.width = `${LIST_PERCENTS[3]}%`;
             }
             else if (QUESTION.getAnswerTrue() == "B") {
-                PERCENT_B.innerHTML = `${MAX_PERCENT}%`;
+                PERCENT_B.innerHTML = `B. ${MAX_PERCENT}%`;
                 PERCENT_B.style.width = `${MAX_PERCENT}%`;
 
-                PERCENT_A.innerHTML = `${LIST_PERCENTS[1]}%`;
+                PERCENT_A.innerHTML = `A. ${LIST_PERCENTS[1]}%`;
                 PERCENT_A.style.width = `${LIST_PERCENTS[1]}%`;
 
-                PERCENT_C.innerHTML = `${LIST_PERCENTS[2]}%`;
+                PERCENT_C.innerHTML = `C. ${LIST_PERCENTS[2]}%`;
                 PERCENT_C.style.width = `${LIST_PERCENTS[2]}%`;
 
-                PERCENT_D.innerHTML = `${LIST_PERCENTS[3]}%`;
+                PERCENT_D.innerHTML = `D. ${LIST_PERCENTS[3]}%`;
                 PERCENT_D.style.width = `${LIST_PERCENTS[3]}%`;
             }
             else if (QUESTION.getAnswerTrue() == "C") {
-                PERCENT_C.innerHTML = `${MAX_PERCENT}%`;
+                PERCENT_C.innerHTML = `C. ${MAX_PERCENT}%`;
                 PERCENT_C.style.width = `${MAX_PERCENT}%`;
 
-                PERCENT_B.innerHTML = `${LIST_PERCENTS[1]}%`;
+                PERCENT_B.innerHTML = `B. ${LIST_PERCENTS[1]}%`;
                 PERCENT_B.style.width = `${LIST_PERCENTS[1]}%`;
 
-                PERCENT_A.innerHTML = `${LIST_PERCENTS[2]}%`;
+                PERCENT_A.innerHTML = `A. ${LIST_PERCENTS[2]}%`;
                 PERCENT_A.style.width = `${LIST_PERCENTS[2]}%`;
 
-                PERCENT_D.innerHTML = `${LIST_PERCENTS[3]}%`;
+                PERCENT_D.innerHTML = `D. ${LIST_PERCENTS[3]}%`;
                 PERCENT_D.style.width = `${LIST_PERCENTS[3]}%`;
             }
             else if (QUESTION.getAnswerTrue() == "D") {
-                PERCENT_D.innerHTML = `${MAX_PERCENT}%`;
+                PERCENT_D.innerHTML = `D. ${MAX_PERCENT}%`;
                 PERCENT_D.style.width = `${MAX_PERCENT}%`;
 
-                PERCENT_B.innerHTML = `${LIST_PERCENTS[1]}%`;
+                PERCENT_B.innerHTML = `B. ${LIST_PERCENTS[1]}%`;
                 PERCENT_B.style.width = `${LIST_PERCENTS[1]}%`;
 
-                PERCENT_C.innerHTML = `${LIST_PERCENTS[2]}%`;
+                PERCENT_C.innerHTML = `C. ${LIST_PERCENTS[2]}%`;
                 PERCENT_C.style.width = `${LIST_PERCENTS[2]}%`;
 
-                PERCENT_A.innerHTML = `${LIST_PERCENTS[3]}%`;
+                PERCENT_A.innerHTML = `A. ${LIST_PERCENTS[3]}%`;
                 PERCENT_A.style.width = `${LIST_PERCENTS[3]}%`;
             }
             this.buttonll2.classList.add('usedButton');

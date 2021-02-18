@@ -57,6 +57,10 @@ app.get('/modules_clear_js/Reward.js', (req, res) => {
     res.sendFile(__dirname + '/modules_clear_js/Reward.js');
 });
 
+app.get('/modules_clear_js/confetti/confetti.js', (req, res) => {
+    res.sendFile(__dirname + '/modules_clear_js/confetti/confetti.js');
+});
+
 
 //connect to db
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {console.log('connected to DB')})
