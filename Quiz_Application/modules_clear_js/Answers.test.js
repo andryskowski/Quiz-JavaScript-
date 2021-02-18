@@ -3,6 +3,7 @@ const Answers = require('./Answers')
 describe('totalAnswers', () => {
     it('returns zero when no answers', () =>{
         const subject = new Answers();
-        // expect((subject.getAnswersList.toBe(0)))
+        const ANSWERS_LIST = subject.answersList;
+        expect(ANSWERS_LIST.length).toBe(0)
     })
 })
