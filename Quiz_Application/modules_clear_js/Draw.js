@@ -1,7 +1,6 @@
 class Draw {
 
     constructor() {
-
         //button to change question
         this.buttonConfirmQuestion = document.createElement(`button`);
         this.buttonConfirmQuestion.innerHTML = 'Next question';

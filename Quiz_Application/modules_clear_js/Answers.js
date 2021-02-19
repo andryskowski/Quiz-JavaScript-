@@ -10,22 +10,25 @@ class Answers {
             this.answersList.push(answer);
         }
         this.addAnswerToListIfTrue = (answer) => {
-            // if (!answer) {
-            //     throw new Error("Answer needed!");
+            // if (answer === false) {
+            //     throw new Error("Answer is not true!");
             // }
             this.answersListIsTrue.push(answer);
         }
         this.countCorrectAnswers()
     }
-    // countCorrectAnswers() {
-    //     let counter=0;
-    //     this.answersListIsTrue.forEach((answer) => {
-    //         if(answer === true){
-    //             counter=counter+1;
-    //         }
-    //     })
-    //     return counter;
-    // }
+    countCorrectAnswers() {
+        let counter=0;
+        this.answersListIsTrue.forEach((answer) => {
+            if (answer == false) {
+                throw new Error("Answer is not true!");
+            }
+            if(answer == true){    
+                counter=counter+1;
+            }
+        })
+        return counter;
+    }
 
 }
 

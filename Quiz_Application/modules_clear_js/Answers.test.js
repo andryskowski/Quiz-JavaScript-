@@ -37,12 +37,12 @@ describe('add', () => {
 describe('count', () => {
     it('count answer', () => {
         const subject = new Answers();
-        subject.addAnswerToList('A');
-        subject.addAnswerToList('A');
-        
-        expect(ACTUAL_COUNT).toBeGreaterThan(0)
-
+        subject.addAnswerToListIfTrue(true);
+        subject.addAnswerToListIfTrue(true);
+        const ACTUAL_COUNT = subject.countCorrectAnswers();
+        expect(ACTUAL_COUNT).toBe(2);
     })
+    
    
 
 })
