@@ -28,7 +28,7 @@ class Draw {
         this.answerD = document.querySelector('.questionDIV span.D');
         this.BOARD = document.querySelector('.questionDIV');
 
-        //buttons of lifelines (ll means LifeLine) 1 - 50/50, 2 - AskTheAudience, 3 - phone a friend
+        //buttons of lifelines (ll means LifeLine) 1 - phone a friend, 2 - AskTheAudience, 3 - 50/50
         this.buttonll1 = document.createElement("button");
         document.querySelector(`.lifeLinesAndNext`).appendChild(this.buttonll1);
         this.buttonll1.className = "buttonOnGame";
@@ -223,14 +223,14 @@ class Draw {
     }
 
     drawButtonsLifeLines() {
-        this.buttonll1.innerHTML = "50/50";
-        this.buttonll1.addEventListener("click", () => this.setLifeLine("FiftyFifty"));
+        this.buttonll1.innerHTML = "Phone A Friend";
+        this.buttonll1.addEventListener("click", () => this.setLifeLine("PhoneAFriend"));
 
         this.buttonll2.innerHTML = "Ask The Audience";
         this.buttonll2.addEventListener("click", () => this.setLifeLine("AskTheAudience"));
-
-        this.buttonll3.innerHTML = "Phone A Friend";
-        this.buttonll3.addEventListener("click", () => this.setLifeLine("PhoneAFriend"));
+        
+        this.buttonll3.innerHTML = "50/50";
+        this.buttonll3.addEventListener("click", () => this.setLifeLine("FiftyFifty"));
     }
 
     changePresenterImg() {
@@ -256,35 +256,15 @@ class Draw {
     setLifeLine(LIFELINE_NAME) {
 
         //FiftyFifty LifeLines
-        if (LIFELINE_NAME == "FiftyFifty" && this.buttonll1IsUsed == true) {
+        if (LIFELINE_NAME == "PhoneAFriend" && this.buttonll1IsUsed == true) {
             this.POPUP.className = "popup";
             this.POPUP.style.display = `block`;
 
-            const FIFTYFIFTY = new FiftyFifty(true);
-            this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to ` + FIFTYFIFTY.getName();
-            // FIFTYFIFTY.algorithmFiftyFifty(QUESTION.getAnswerTrue());
-
-            const SHUFFLED_LIST_INCORRECT_ANSWERS = FIFTYFIFTY.algorithmFiftyFifty();
-            if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "B")
-                this.answerB.classList.add(`fiftyFifty`);
-            else if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "C")
-                this.answerC.classList.add(`fiftyFifty`);
-            else if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "D")
-                this.answerD.classList.add(`fiftyFifty`);
-            else if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "A")
-                this.answerA.classList.add(`fiftyFifty`);
-
-            if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "B")
-                this.answerB.classList.add(`fiftyFifty`);
-            else if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "C")
-                this.answerC.classList.add(`fiftyFifty`);
-            else if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "D")
-                this.answerD.classList.add(`fiftyFifty`);
-            else if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "A")
-                this.answerA.classList.add(`fiftyFifty`);
-
+            const PHONE_A_FRIEND = new PhoneAFriend(true);
+            this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to ` + PHONE_A_FRIEND.getName();
+            const ANSWER_FROM_FRIEND = PHONE_A_FRIEND.algorithmPhoneAFriend();
+            this.POPUP.innerHTML += ` Według niego prawidłowa odpowiedź to odpowiedź ${ANSWER_FROM_FRIEND}.`;
             this.buttonll1.classList.add('usedButton');
-
             this.buttonll1IsUsed = false;
 
         }
@@ -371,15 +351,35 @@ class Draw {
             this.buttonll2.classList.add('usedButton');
             this.buttonll2IsUsed = false;
         }
-        else if (LIFELINE_NAME == "PhoneAFriend" && this.buttonll3IsUsed == true) {
+        else if (LIFELINE_NAME == "FiftyFifty" && this.buttonll3IsUsed == true) {
             this.POPUP.className = "popup";
             this.POPUP.style.display = `block`;
 
-            const PHONE_A_FRIEND = new PhoneAFriend(true);
-            this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to ` + PHONE_A_FRIEND.getName();
-            const ANSWER_FROM_FRIEND = PHONE_A_FRIEND.algorithmPhoneAFriend();
-            this.POPUP.innerHTML += ` Według niego prawidłowa odpowiedź to odpowiedź ${ANSWER_FROM_FRIEND}.`;
+            const FIFTYFIFTY = new FiftyFifty(true);
+            this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to ` + FIFTYFIFTY.getName();
+            // FIFTYFIFTY.algorithmFiftyFifty(QUESTION.getAnswerTrue());
+
+            const SHUFFLED_LIST_INCORRECT_ANSWERS = FIFTYFIFTY.algorithmFiftyFifty();
+            if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "B")
+                this.answerB.classList.add(`fiftyFifty`);
+            else if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "C")
+                this.answerC.classList.add(`fiftyFifty`);
+            else if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "D")
+                this.answerD.classList.add(`fiftyFifty`);
+            else if (SHUFFLED_LIST_INCORRECT_ANSWERS[0] == "A")
+                this.answerA.classList.add(`fiftyFifty`);
+
+            if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "B")
+                this.answerB.classList.add(`fiftyFifty`);
+            else if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "C")
+                this.answerC.classList.add(`fiftyFifty`);
+            else if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "D")
+                this.answerD.classList.add(`fiftyFifty`);
+            else if (SHUFFLED_LIST_INCORRECT_ANSWERS[1] == "A")
+                this.answerA.classList.add(`fiftyFifty`);
+
             this.buttonll3.classList.add('usedButton');
+
             this.buttonll3IsUsed = false;
         }
 

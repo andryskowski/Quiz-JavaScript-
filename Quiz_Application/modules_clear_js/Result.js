@@ -11,7 +11,6 @@ class Result {
         this.setResult = () => {
             DRAW.cleanBoard();
 
-
             if (this.getActualState() == `victory`) {
                 this.BOARD.innerHTML = `<p class="pAfterGiveUp">Congratulations, you are a millionaire !!</p> <i class="fas fa-trophy"></i>`;
             }
