@@ -20,3 +20,6 @@ class Reward {
 
 //instance of this class
 const REWARD = new Reward();
+
+//module.exports especially for tests
+module.exports = Reward;

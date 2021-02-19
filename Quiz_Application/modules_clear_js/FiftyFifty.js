@@ -15,7 +15,6 @@ class FiftyFifty extends LifeLine {
         return a;
     }
 
-
     //funkcja zwracajaca liste 3ech niepoprawnych odpowiedzi
     algorithmFiftyFifty() {
         //dwie poniższe linijki służą do wyjęcia drugiej odpowiedzi, która tym razem będzie błędna

@@ -32,5 +32,7 @@ class Answers {
 
 }
 
+
+//module.exports especially for tests
 module.exports = Answers;
 

@@ -28,7 +28,7 @@ class Question {
                 this.questionsQuantity = this.quests.length;
                 DRAW.setDraw()
             })
-
+        
         this.getQuestionQuantity = () => this.questionsQuantity;
         this.getQuestionID = () => _id;
         this.setQuestionID = (_newid) => _id = _newid;

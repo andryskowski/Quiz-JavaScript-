@@ -4,7 +4,6 @@ class AskTheAudience extends LifeLine {
         let _name = `pytanie do publiczności!`;
         this.getName = () => _name;
         this.setName = (_newName) => _name = _newName;
-
     }
 
 
@@ -23,10 +22,10 @@ class AskTheAudience extends LifeLine {
         return 0
     }
 
-    //funkcja zwracajaca liste 3ech niepoprawnych odpowiedzi
+    //function returns list of three incorrect answers
     algorithmAskTheAudience() {
-        //lista dla procentow dla kazdej odpowiedzi
-        const LIST_PERCENTS = [this.getRandomInt(0, 100)]
+        //list for percents, for every answer
+        const LIST_PERCENTS = [this.getRandomInt(0, 100)];
 
         LIST_PERCENTS.push(this.getRandomInt(0, 100 - LIST_PERCENTS[0]))
         LIST_PERCENTS.push(this.getRandomInt(0, 100 - (LIST_PERCENTS[1] + LIST_PERCENTS[0])))
