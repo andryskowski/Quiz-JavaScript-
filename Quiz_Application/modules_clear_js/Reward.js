@@ -18,5 +18,5 @@ class Reward {
     }
 }
 
-
+//instance of this class
 const REWARD = new Reward();

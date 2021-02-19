@@ -146,7 +146,7 @@ class Draw {
                 this.changeRewardElement()
                 //setting guaranteed reward
                 if (REWARD.getActualLevel() == 10) {
-                    const ACTUAL_GUARANTEED_REWARD = 400;
+                    const ACTUAL_GUARANTEED_REWARD = 1000;
                     REWARD.setGuaranteedReward(ACTUAL_GUARANTEED_REWARD);
                 }
                 else if (REWARD.getActualLevel() == 5) {
@@ -397,3 +397,4 @@ class Draw {
 //instances of draw and answers
 const DRAW = new Draw();
 const ANSWERS = new Answers();
+
