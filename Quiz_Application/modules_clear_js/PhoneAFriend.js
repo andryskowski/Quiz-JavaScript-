@@ -1,14 +1,12 @@
 class PhoneAFriend extends LifeLine {
     constructor(isUsed) {
         super(isUsed);
-        let _name = `telefon do przyjaciela!`;
+        let _name = `phone to friend!`;
         this.getName = () => _name;
         this.setName = (_newName) => _name = _newName;
-
     }
 
     algorithmPhoneAFriend() {
-       console.log("dziala alhorithmPhonAFriend!");
        const CORRECT_ANSWER =  QUESTION.getAnswerTrue();
        const LIST_PROBABILITY = ["A", "B", "C", "D", CORRECT_ANSWER, CORRECT_ANSWER, CORRECT_ANSWER, CORRECT_ANSWER, CORRECT_ANSWER, CORRECT_ANSWER,
        CORRECT_ANSWER, CORRECT_ANSWER, CORRECT_ANSWER, CORRECT_ANSWER, CORRECT_ANSWER, CORRECT_ANSWER];

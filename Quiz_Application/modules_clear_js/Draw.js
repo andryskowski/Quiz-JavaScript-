@@ -169,14 +169,14 @@ class Draw {
                 this.answerD.classList.remove('checkedAnswer');
                 ANSWERS.addAnswerToList(QUESTION.getMarkedAnswer());
 
-                ANSWERS.addAnswerToListIsTrue(this.isCorrect);
+                ANSWERS.addAnswerToListIfTrue(this.isCorrect);
 
             }
             //jesli zatwierdzi się wszystkie pytania
             else if ((QUESTION.getQuestionQuantity() - 1) === this.counter) {
                 
                 ANSWERS.addAnswerToList(QUESTION.getMarkedAnswer());
-                ANSWERS.addAnswerToListIsTrue(this.isCorrect);
+                ANSWERS.addAnswerToListIfTrue(this.isCorrect);
                 if (this.isCorrect == true) {
                     this.RESULT.setActualState('victory');
                     this.RESULT.setResult();

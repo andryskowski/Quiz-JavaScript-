@@ -30,8 +30,19 @@ describe('add', () => {
         expect(() => {
             subject.addAnswerToList();
         }).toThrow('Answer needed!');
+    })
+
+})
+
+describe('count', () => {
+    it('count answer', () => {
+        const subject = new Answers();
+        subject.addAnswerToList('A');
+        subject.addAnswerToList('A');
         
+        expect(ACTUAL_COUNT).toBeGreaterThan(0)
 
     })
+   
 
 })

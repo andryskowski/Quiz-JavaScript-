@@ -4,17 +4,19 @@ class Answers {
         this.answersListIsTrue = [];
         this.getAnswersList = () => this.answersList;
         this.addAnswerToList = (answer) => {
-            if(!answer){
+            if (!answer) {
                 throw new Error("Answer needed!");
             }
             this.answersList.push(answer);
         }
-        this.addAnswerToListIsTrue = (answer) => {
+        this.addAnswerToListIfTrue = (answer) => {
+            // if (!answer) {
+            //     throw new Error("Answer needed!");
+            // }
             this.answersListIsTrue.push(answer);
         }
         this.countCorrectAnswers()
     }
-
     countCorrectAnswers() {
         let counter=0;
         this.answersListIsTrue.forEach((answer) => {
@@ -28,3 +30,4 @@ class Answers {
 }
 
 module.exports = Answers;
+

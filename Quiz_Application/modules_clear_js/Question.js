@@ -1,3 +1,4 @@
+//let questions which can be used when connection with DB doesn't work
 // let questions = [
 //     {
 //         idQuestion: 0,
@@ -10,16 +11,12 @@
 //     }
 // ]
 
-
 class Question {
     constructor(id) {
         let _id = id;
         let _newid;
-        // let quests = [...questions];
-        // this.isLoaded = false;
         this.quests = [];
 
-        // this.getObjectsDB = () => {
         fetch("http://localhost:3000/questionsdb")
             .then(response => response.json())
             .then(response => {
@@ -31,15 +28,12 @@ class Question {
                 this.questionsQuantity = this.quests.length;
                 draw.setDraw()
             })
-        // }
-        this.getQuestionQuantity = () => this.questionsQuantity;
 
+        this.getQuestionQuantity = () => this.questionsQuantity;
         this.getQuestionID = () => _id;
         this.setQuestionID = (_newid) => _id = _newid;
-
-
+        //other than a, b,c,d
         this.markedAnswer = 'E';
-
         this.setMarkedAnswer = (_newMarkedAnswer) => this.markedAnswer = _newMarkedAnswer;
         this.getMarkedAnswer = () => this.markedAnswer;
 
@@ -67,20 +61,13 @@ class Question {
             return this.quests[_id].TrueAnswer;
         }
 
-
-        // this.getIsLoaded = () => {
-        //     return this.isLoaded;
-        // }
-
-
-
     }
 
-
+    //method to shuffle questions taken from DB (used in method fetch which is on top this class)
     shuffle(a) {
         for (let i = a.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [a[i], a[j]] = [a[j], a[i]];
+            const J = Math.floor(Math.random() * (i + 1));
+            [a[i], a[J]] = [a[J], a[i]];
         }
         return a;
     }
