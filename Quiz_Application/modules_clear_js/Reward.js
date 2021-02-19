@@ -11,6 +11,7 @@ class Reward {
             const actualLevel = this.getActualLevel();
             return LEVELS[actualLevel];
         }
+        
         this.guaranteedReward = 0;
         this.getGuaranteedReward = () =>  this.guaranteedReward;
         this.setGuaranteedReward = (_newGuaranteedReward) => this.guaranteedReward = _newGuaranteedReward;

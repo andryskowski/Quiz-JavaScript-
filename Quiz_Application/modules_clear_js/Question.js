@@ -26,7 +26,7 @@ class Question {
                  this.quests.push(SHUFFLED_RESPONSE[i]);
                 }
                 this.questionsQuantity = this.quests.length;
-                draw.setDraw()
+                DRAW.setDraw()
             })
 
         this.getQuestionQuantity = () => this.questionsQuantity;

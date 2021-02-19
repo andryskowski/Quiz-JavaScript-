@@ -9,7 +9,7 @@ class Result {
         this.setActualState = (_newState) => this.actualState = _newState;
 
         this.setResult = () => {
-            draw.cleanBoard();
+            DRAW.cleanBoard();
 
 
             if (this.getActualState() == `victory`) {
