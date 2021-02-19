@@ -42,7 +42,13 @@ describe('count', () => {
         const ACTUAL_COUNT = subject.countCorrectAnswers();
         expect(ACTUAL_COUNT).toBe(2);
     })
-    
+    it('throws error when false answer given', () => {
+        const subject = new Answers();
+        subject.addAnswerToListIfTrue(false);
+        expect(() => {
+            subject.countCorrectAnswers();
+        }).toThrow('Answer is not true!');
+    })
    
 
 })
