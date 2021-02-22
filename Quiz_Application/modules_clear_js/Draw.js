@@ -262,7 +262,7 @@ class Draw {
             const PHONE_A_FRIEND = new PhoneAFriend(true);
             this.POPUP.innerHTML = `Life Line choosen by you is:  ` + PHONE_A_FRIEND.getName();
             const ANSWER_FROM_FRIEND = PHONE_A_FRIEND.algorithmPhoneAFriend();
-            this.POPUP.innerHTML += ` Według niego prawidłowa odpowiedź to odpowiedź ${ANSWER_FROM_FRIEND}.`;
+            this.POPUP.innerHTML += ` Your friend is saying that the true answer is ${ANSWER_FROM_FRIEND}.`;
             this.buttonll1.classList.add('usedButton');
             this.buttonll1IsUsed = false;
 
