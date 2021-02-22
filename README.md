@@ -8,7 +8,13 @@ If you want to turn on the application:
 <br/>
 -<b>unpack ZIP</b> or add repository from your GitHub Desktop using option 'Open with GitHubDesktop'
 -open this app on your favorite code editor (for example Visual Studio Code)
+<br/>
 -type in terminal <b>'npm start'</b>
+<br/>
 -open <a href="http://localhost:3000/">http://localhost:3000/</a>
 
 The biggest part logic of the application is included inside catalog 'modules_clear_js'. Catalog 'routes' and 'models' concern API issues.
+
+<h2>Photos from app</h2>
+
+<a href="https://ibb.co/yYqySHZ"><img src="https://i.ibb.co/rcH6sDz/photos.png" alt="photos" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
