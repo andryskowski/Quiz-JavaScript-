@@ -17,7 +17,7 @@ If you want to turn on the application:
 Icons from Font Awesome
 Font from Google Fonts
 
-The biggest part logic of the application is included inside catalog 'modules_clear_js'. Catalog 'routes' and 'models' concern API issues.
+The biggest part logic of the application is included inside catalog 'modules_logic_js'. Catalog 'routes' and 'models' concern API issues.
 
 <h2>Photos from app</h2>
 
