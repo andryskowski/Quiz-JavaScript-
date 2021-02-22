@@ -21,4 +21,4 @@ The biggest part logic of the application is included inside catalog 'modules_lo
 
 <h2>Photos from app</h2>
 
-<a href="https://ibb.co/yYqySHZ"><img src="https://i.ibb.co/rcH6sDz/photos.png" alt="photos" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
+<a href="https://ibb.co/Vv4kff8"><img src="https://i.ibb.co/Hr8955Q/photos.png" alt="photos" border="0"></a>
