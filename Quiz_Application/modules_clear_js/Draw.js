@@ -260,7 +260,7 @@ class Draw {
             this.POPUP.style.display = `block`;
 
             const PHONE_A_FRIEND = new PhoneAFriend(true);
-            this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to ` + PHONE_A_FRIEND.getName();
+            this.POPUP.innerHTML = `Life Line choosen by you is:  ` + PHONE_A_FRIEND.getName();
             const ANSWER_FROM_FRIEND = PHONE_A_FRIEND.algorithmPhoneAFriend();
             this.POPUP.innerHTML += ` Według niego prawidłowa odpowiedź to odpowiedź ${ANSWER_FROM_FRIEND}.`;
             this.buttonll1.classList.add('usedButton');
@@ -273,7 +273,7 @@ class Draw {
             this.POPUP.style.display = `block`;
 
             const ASK_THE_AUDIENCE = new AskTheAudience(true);
-            this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to ` + ASK_THE_AUDIENCE.getName();
+            this.POPUP.innerHTML = `Life Line choosen by you is:  ` + ASK_THE_AUDIENCE.getName();
 
 
             const LIST_PERCENTS = ASK_THE_AUDIENCE.algorithmAskTheAudience();
@@ -355,7 +355,7 @@ class Draw {
             this.POPUP.style.display = `block`;
 
             const FIFTYFIFTY = new FiftyFifty(true);
-            this.POPUP.innerHTML = `Koło ratunkowe wybrane przez ciebie to ` + FIFTYFIFTY.getName();
+            this.POPUP.innerHTML = `Life Line choosen by you is:  ` + FIFTYFIFTY.getName();
             // FIFTYFIFTY.algorithmFiftyFifty(QUESTION.getAnswerTrue());
 
             const SHUFFLED_LIST_INCORRECT_ANSWERS = FIFTYFIFTY.algorithmFiftyFifty();
