@@ -13,6 +13,10 @@ If you want to turn on the application:
 <br/>
 -open <a href="http://localhost:3000/">http://localhost:3000/</a>
 
+<b>Sources</b>
+Icons from Font Awesome
+Font from Google Fonts
+
 The biggest part logic of the application is included inside catalog 'modules_clear_js'. Catalog 'routes' and 'models' concern API issues.
 
 <h2>Photos from app</h2>
